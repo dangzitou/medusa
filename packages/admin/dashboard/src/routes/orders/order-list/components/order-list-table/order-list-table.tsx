@@ -67,6 +67,11 @@ export const OrderListTable = () => {
         pageSize={PAGE_SIZE}
         orderBy={[
           { key: "display_id", label: t("orders.fields.displayId") },
+          { key: "payment_status", label: t("orders.fields.paymentStatus") },
+          {
+            key: "fulfillment_status",
+            label: t("orders.fields.fulfillmentStatus"),
+          },
           { key: "created_at", label: t("fields.createdAt") },
           { key: "updated_at", label: t("fields.updatedAt") },
         ]}

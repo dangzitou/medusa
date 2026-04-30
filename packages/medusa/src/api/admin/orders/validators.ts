@@ -57,6 +57,12 @@ const AdminGetOrdersParamsBase = createFindParams({
     status: z
       .union([z.string(), z.array(z.string()), createOperatorMap()])
       .optional(),
+    payment_status: z
+      .union([z.string(), z.array(z.string()), createOperatorMap()])
+      .optional(),
+    fulfillment_status: z
+      .union([z.string(), z.array(z.string()), createOperatorMap()])
+      .optional(),
     sales_channel_id: z.array(z.string()).optional(),
     region_id: z.union([z.string(), z.array(z.string())]).optional(),
     customer_id: z.union([z.string(), z.array(z.string())]).optional(),
