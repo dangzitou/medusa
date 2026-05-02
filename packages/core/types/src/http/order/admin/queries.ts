@@ -20,6 +20,14 @@ export interface AdminOrderFilters extends FindParams, BaseOrderFilters {
    */
   customer_id?: string[] | string
   /**
+   * Filter by payment status(es).
+   */
+  payment_status?: string[] | string
+  /**
+   * Filter by fulfillment status(es).
+   */
+  fulfillment_status?: string[] | string
+  /**
    * Query or keywords to filter the order's searchable fields.
    */
   q?: string
