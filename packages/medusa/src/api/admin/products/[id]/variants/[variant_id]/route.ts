@@ -15,6 +15,7 @@ import {
   remapProductResponse,
   remapVariantResponse,
 } from "../../../helpers"
+import { defaultAdminProductVariantMutationFields } from "../../query-config"
 
 export const GET = async (
   req: AuthenticatedMedusaRequest<HttpTypes.SelectParams>,
@@ -53,11 +54,15 @@ export const POST = async (
     },
   })
 
+  const fields = req.queryConfig.fields?.length
+    ? req.queryConfig.fields
+    : defaultAdminProductVariantMutationFields
+
   const product = await refetchEntity({
     entity: "product",
     idOrFilter: productId,
     scope: req.scope,
-    fields: remapKeysForProduct(req.queryConfig.fields ?? []),
+    fields: remapKeysForProduct(fields),
   })
 
   res.status(200).json({ product: remapProductResponse(product) })
